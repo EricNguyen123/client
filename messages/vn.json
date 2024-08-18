@@ -1,0 +1,19 @@
+{
+  "Register": {
+    "title": "Đăng ký",
+    "description": "Tạo tài khoản mới",
+    "name": "Tên",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "submit": "Đăng ký",
+    "placeholderName": "Nhập vào tên của bạn",
+    "placeholderEmail": "Nhập vào email của bạn",
+    "placeholderPassword": "Nhập vào mật khẩu của bạn",
+    "placeholderConfirmPassword": "Nhập lại mật khẩu của bạn"
+  },
+  "Header": {
+    "register": "Đăng ký",
+    "login": "Đăng nhập"
+  }
+}

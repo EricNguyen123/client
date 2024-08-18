@@ -1,0 +1,19 @@
+{
+  "Register": {
+    "title": "Register",
+    "description": "Create new account",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "submit": "Register",
+    "placeholderName": "Enter your name",
+    "placeholderEmail": "Enter your email",
+    "placeholderPassword": "Enter your password",
+    "placeholderConfirmPassword": "Re-enter your password"
+  },
+  "Header": {
+    "register": "Register",
+    "login": "Login"
+  }
+}

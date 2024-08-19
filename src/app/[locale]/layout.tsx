@@ -23,7 +23,7 @@ export default async function RootLayout({
   const messages = await getMessages();
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} h-screen`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

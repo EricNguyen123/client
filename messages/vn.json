@@ -10,10 +10,54 @@
     "placeholderName": "Nhập vào tên của bạn",
     "placeholderEmail": "Nhập vào email của bạn",
     "placeholderPassword": "Nhập vào mật khẩu của bạn",
-    "placeholderConfirmPassword": "Nhập lại mật khẩu của bạn"
+    "placeholderConfirmPassword": "Nhập lại mật khẩu của bạn",
+    "login": "Đã có tài khoản"
+  },
+  "Login": {
+    "title": "Đăng nhập",
+    "description": "Đăng nhập với tài khoản của bạn",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "submit": "Đăng nhập",
+    "placeholderEmail": "Nhập vào email của bạn",
+    "placeholderPassword": "Nhập vào mật khẩu của bạn",
+    "register": "Tạo tài khoản mới"
   },
   "Header": {
     "register": "Đăng ký",
     "login": "Đăng nhập"
+  },
+  "Themes": {
+    "light": "Sáng",
+    "dark": "Tối",
+    "system": "Hệ thống"
+  },
+  "Language": {
+    "language": "Ngôn ngữ",
+    "vn": "Tiếng Việt",
+    "en": "Tiếng Anh"
+  },
+  "NavigationMenu": {
+    "home": "Trang chủ",
+    "fanpage": "Fanpage",
+    "category": "Danh mục",
+    "nameApp": "TruyenMeli",
+    "descriptionApp": "Đọc, nghe truyện hay tại TruyenMeli, cùng trải nghiệm những câu truyện thú vị.",
+    "history": "Lịch sử",
+    "follow": "Theo dõi",
+    "rating": "Xếp hạng",
+    "comments": "Bình luận",
+    "descriptionHistory": "Các truyện bạn đã đọc",
+    "descriptionFollow": "Các truyện bạn đã theo dõi",
+    "descriptionComments": "Trò truyện của bạn"
+  },
+  "Ratings": {
+    "day": "Top ngày",
+    "month": "Top tháng",
+    "week": "Top tuần",
+    "favorite": "Yêu thích",
+    "new": "Mới cập nhật",
+    "newStory": "Truyện mới",
+    "storyFull": "Truyện Full"
   }
 }

@@ -10,10 +10,54 @@
     "placeholderName": "Enter your name",
     "placeholderEmail": "Enter your email",
     "placeholderPassword": "Enter your password",
-    "placeholderConfirmPassword": "Re-enter your password"
+    "placeholderConfirmPassword": "Re-enter your password",
+    "login": "Already have an account"
+  },
+  "Login": {
+    "title": "Login",
+    "description": "Login with your account",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Login",
+    "placeholderEmail": "Enter your email",
+    "placeholderPassword": "Enter your password",
+    "register": "Create new account"
   },
   "Header": {
     "register": "Register",
     "login": "Login"
+  },
+  "Themes": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "Language": {
+    "language": "Language",
+    "vn": "Vietnamese",
+    "en": "English"
+  },
+  "NavigationMenu": {
+    "home": "Home",
+    "fanpage": "Fanpage",
+    "category": "Category",
+    "nameApp": "TruyenMeli",
+    "descriptionApp": "Read and listen to good stories at TruyenMeli, experience interesting stories.",
+    "history": "History",
+    "follow": "Follow",
+    "rating": "Rating",
+    "comments": "Comments",
+    "descriptionHistory": "Stories you've read", 
+    "descriptionFollow": "Stories you've followed", 
+    "descriptionComments": "Your conversations"
+  },
+  "Ratings": {
+    "day": "Top day",
+    "month": "Top month",
+    "week": "Top week",
+    "favorite": "Favorite",
+    "new": "New update",
+    "newStory": "New story",
+    "storyFull": "Full story"
   }
 }

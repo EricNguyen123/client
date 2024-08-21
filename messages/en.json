@@ -58,6 +58,42 @@
     "favorite": "Favorite",
     "new": "New update",
     "newStory": "New story",
-    "storyFull": "Full story"
+    "storyFull": "Full story",
+    "desDay": "Good stories every day",
+    "desMonth": "Good stories of the month",
+    "desWeek": "Good stories of the week",
+    "desFavorite": "Your favorite good stories",
+    "desNew": "Newly published chapters",
+    "desNewStory": "Newest good stories",
+    "desStoryFull": "The story has ended"
+  },
+  "Category": {
+    "action": "Action",
+    "adventure": "Adventure",
+    "anime": "Anime",
+    "reincarnation": "Reincarnation",
+    "ancient": "Ancient",
+    "comedy": "Comedy",
+    "comic": "Comic",
+    "demons": "Demons",
+    "detective": "Detective",
+    "doujinshi": "Doujinshi",
+    "drama": "Drama",
+    "fantasy": "Fantasy",
+    "harem": "Harem",
+    "historical": "History",
+    "horror": "Horror",
+    "manhua": "Manhua",
+    "manhwa": "Manhwa",
+    "webtoon": "Webtoon"
+  },
+  "Weekday": {
+    "monday": "Mon",
+    "tuesday": "Tue",
+    "wednesday": "Wed",
+    "thursday": "Thu",
+    "friday": "Fri",
+    "saturday": "Sat",
+    "sunday": "Sun"
   }
 }

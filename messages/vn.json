@@ -58,6 +58,44 @@
     "favorite": "Yêu thích",
     "new": "Mới cập nhật",
     "newStory": "Truyện mới",
-    "storyFull": "Truyện Full"
+    "storyFull": "Truyện Full",
+    "desDay": "Truyện hay mỗi ngày",
+    "desMonth": "Truyện hay trong tháng",
+    "desWeek": "Truyện hay trong tuần",
+    "desFavorite": "Truyện hay bạn yêu thích nhất",
+    "desNew": "Chapter truyện mới đăng",
+    "desNewStory": "Truyện hay mới nhất",
+    "desStoryFull": "Truyện đã kết thúc"
+  },
+  "Category": {
+    "action": "Hành động",
+    "adventure": "Phưu lưu",
+    "anime": "Anime",
+    "reincarnation": "Chuyển Sinh",
+    "ancient": "Cổ đại",
+    "comedy": "Hài kịch",
+    "comic": "Truyện tranh",
+    "demons": "Ác quỷ",
+    "detective": "Thám tử",
+    "doujinshi": "Doujinshi",
+    "drama": "Kịch",
+    "fantasy": "Huyền huyễn",
+    "gender": "Giới tính",
+    "bender": "Bender",
+    "harem": "Hậu cung",
+    "historical": "Lịch sử",
+    "horror": "Kinh dị",
+    "manhua": "Manhua",
+    "manhwa": "Manhwa",
+    "webtoon": "Webtoon"
+  },
+  "Weekday": {
+    "monday": "Thứ hai",
+    "tuesday": "Thứ ba",
+    "wednesday": "Thứ tư",
+    "thursday": "Thứ năm",
+    "friday": "Thứ sáu",
+    "saturday": "Thứ bảy",
+    "sunday": "Chủ nhật"
   }
 }

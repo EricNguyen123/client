@@ -17,16 +17,17 @@ import { useTranslations } from "next-intl"
 import Image from 'next/image'
 import iconApp from '../../public/Meli.png'
 import { useRatings } from '../constants/ratings'
-import { components } from '../constants/components'
+import { useCategory } from '../constants/category'
 
 export function NavBarMenu() {
   const t = useTranslations('NavigationMenu');
   const ratings = useRatings();
+  const components = useCategory();
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>{t('home')}</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="hover:text-sky-500">{t('home')}</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -60,9 +61,9 @@ export function NavBarMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>{t('category')}</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="hover:text-sky-500">{t('category')}</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            <ul className="grid w-[300px] gap-3 p-4 md:w-[300px] md:grid-cols-4 lg:w-[900px]">
               {components.map((component) => (
                 <ListItem
                   key={component.title}
@@ -76,7 +77,7 @@ export function NavBarMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>{t('rating')}</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="hover:text-sky-500">{t('rating')}</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {ratings.map((rating) => (
@@ -93,7 +94,7 @@ export function NavBarMenu() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-sky-500`}>
               {t('fanpage')}
             </NavigationMenuLink>
           </Link>

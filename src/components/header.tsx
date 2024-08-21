@@ -6,6 +6,7 @@ import LocalSwitcher from './local-switcher';
 import Image from 'next/image'
 import iconApp from '../../public/Meli.png'
 import { NavBarMenu } from './navbar-menu';
+import ButtonSearch from './button-search';
 
 interface HeaderProps {
   locale: string;
@@ -20,6 +21,7 @@ const Header: React.FC<HeaderProps> = ({ locale }) => {
           <Image src={iconApp} alt='icon-truyen-meli' className='w-[100px] h-[100px] rounded-full'/>
         </Link>
         <NavBarMenu/>
+        <ButtonSearch/>
       </div>
       <div className='flex justify-center items-center'>
         <ul className='flex justify-end items-center mr-[10px]'>

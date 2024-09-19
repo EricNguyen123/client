@@ -15,11 +15,12 @@ import {
 } from "@/components/ui/navigation-menu"
 import { useTranslations } from "next-intl"
 import Image from 'next/image'
-import iconApp from '../../public/Meli.png'
-import { useRatings } from '../constants/ratings'
-import { useCategory } from '../constants/category'
+import iconApp from '../../../../public/Meli.png'
+import config from "@/config"
+import { useRatings } from "@/constants/ratings"
+import { useCategory } from "@/constants/category"
 
-export function NavBarMenu() {
+export function NavBarMenu({ locale }: { locale: string }) {
   const t = useTranslations('NavigationMenu');
   const ratings = useRatings();
   const components = useCategory();
@@ -93,7 +94,7 @@ export function NavBarMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href={`${locale}/${config.routes.public.fanpage}`} legacyBehavior passHref>
             <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-sky-500`}>
               {t('fanpage')}
             </NavigationMenuLink>

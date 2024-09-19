@@ -14,9 +14,26 @@ import {
 import { Input } from "@/components/ui/input"
 import { LoginBodyType, LoginBody } from "@/schemaValidations/auth.schema"
 import { useTranslations } from "next-intl"
+import { useDispatch, useSelector } from "react-redux"
+import { login } from "@/redux/auth/actions"
+import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
+import config from "@/config"
+import { ErrorNumber } from "@/common/general"
 
-export function LoginForm() {
+const LoginForm = () => {
+    const dispatch = useDispatch();
     const t = useTranslations('Login');
+    const authSelector = useSelector(({ auth } : any) => auth);
+    const router = useRouter();
+    const [showError, setShowError] = useState<boolean>(false)
+    const [showErrorMessage, setShowErrorMessage] = useState<string>('')
+
+    useEffect(() => {
+      if (authSelector.authenticated) {
+        router.push(`${config.routes.public.home}`);
+      }
+    }, [authSelector, router]);
 
     const form = useForm<LoginBodyType>({
       resolver: zodResolver(LoginBody),
@@ -27,7 +44,15 @@ export function LoginForm() {
     })
    
     function onSubmit(values: LoginBodyType) {
-      
+      dispatch(login({
+        data: values,
+        setError: (error) => {
+          if(error.status === ErrorNumber.NOT_FOUND) {
+            setShowError(true)
+            setShowErrorMessage(t('error401'))
+          }
+        },
+      }))
     }
 
     return (
@@ -59,8 +84,11 @@ export function LoginForm() {
                 </FormItem>
               )}
             />
+            {showError && <span className="text-[0.8rem] font-medium text-destructive mt-3">{showErrorMessage}</span>}
             <Button type="submit" className="w-[100%] bg-sky-500 hover:bg-sky-700">{t('submit')}</Button>
           </form>
         </Form>
       )    
   }
+
+  export default LoginForm;

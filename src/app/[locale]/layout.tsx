@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/header";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from 'next-intl/server';
+import StoreProvider from "@/redux/store-provider";
+import { Toaster } from "@/components/ui/sonner";
+import Header from "./_view/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,20 +24,26 @@ export default async function RootLayout({
 }>) {
   const messages = await getMessages();
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className={`${inter.className} h-screen`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NextIntlClientProvider messages={messages}>
-            <Header locale={locale}/>
-            {children}
-          </NextIntlClientProvider> 
-        </ThemeProvider>
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang={locale} suppressHydrationWarning>
+        <body className={`${inter.className} h-screen`}>
+          <main className="flex min-h-screen flex-col items-center justify-start dark:bg-black">
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <NextIntlClientProvider messages={messages}>
+                <Header locale={locale}/>
+                <div className="mt-[100px]"></div>
+                {children}
+                <Toaster richColors/>
+              </NextIntlClientProvider> 
+            </ThemeProvider>
+          </main>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

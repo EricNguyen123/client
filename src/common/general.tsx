@@ -7,3 +7,29 @@ export enum Weekday {
   SATURDAY = 5,
   SuUNDAY = 6,
 }
+
+export enum Role {
+  ADMIN = 0,
+  CUSTOM = 1,
+  AUTHOR = 2,
+}
+
+export enum RoleEnum {
+  ADMIN = 'admin',
+  CUSTOM = 'user',
+  AUTHOR = 'author',
+}
+
+export enum Status {
+  Active = 1,
+  Inactive = 0,
+}
+
+export enum StatusEnum {
+  Active = 'active',
+  Inactive = 'inactive',
+}
+
+export enum ErrorNumber {
+  NOT_FOUND = 401,
+}

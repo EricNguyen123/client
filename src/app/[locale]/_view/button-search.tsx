@@ -1,9 +1,9 @@
 "use client"
 
 import React, { useState } from 'react'
-import { Button } from './ui/button'
 import { Search } from 'lucide-react'
-import { Input } from './ui/input'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 export default function ButtonSearch() {
   const [handle, setHandle] = useState<boolean>(false)

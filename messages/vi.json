@@ -11,7 +11,8 @@
     "placeholderEmail": "Nhập vào email của bạn",
     "placeholderPassword": "Nhập vào mật khẩu của bạn",
     "placeholderConfirmPassword": "Nhập lại mật khẩu của bạn",
-    "login": "Đã có tài khoản"
+    "login": "Đã có tài khoản",
+    "loginWithEmail": "Đăng nhập với Email"
   },
   "Login": {
     "title": "Đăng nhập",
@@ -21,11 +22,16 @@
     "submit": "Đăng nhập",
     "placeholderEmail": "Nhập vào email của bạn",
     "placeholderPassword": "Nhập vào mật khẩu của bạn",
-    "register": "Tạo tài khoản mới"
+    "register": "Tạo tài khoản mới",
+    "error401": "Tên đăng nhập hoặc mật khẩu không đúng."
   },
   "Header": {
     "register": "Đăng ký",
-    "login": "Đăng nhập"
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "confirmLogin": "Đăng nhập thành công.",
+    "confirmLogout": "Đăng xuất thành công.",
+    "confirmRegister": "Đăng ký thành công."
   },
   "Themes": {
     "light": "Sáng",
@@ -34,7 +40,7 @@
   },
   "Language": {
     "language": "Ngôn ngữ",
-    "vn": "Tiếng Việt",
+    "vi": "Tiếng Việt",
     "en": "Tiếng Anh"
   },
   "NavigationMenu": {
@@ -97,5 +103,71 @@
     "friday": "Thứ sáu",
     "saturday": "Thứ bảy",
     "sunday": "Chủ nhật"
+  },
+  "DailyMainBtn": {
+    "more": "Xem thêm",
+    "newStory": "Truyện mới"
+  },
+  "Account": {
+    "userName": "Tên người dùng",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "edit": "Sửa",
+    "changePassword": "Đổi mật khẩu",
+    "save": "Lưu",
+    "currentPassword": "Mật khẩu hiện tại",
+    "newPassword": "Mật khẩu mới",
+    "cancel": "Huỷ",
+
+    "errorMsgCurrentPassword": "Nhập sai mật khẩu hiện tại."
+  },
+  "DropdownMenu": {
+    "myAccount": "Tài khoản của tôi",
+    "profile": "Hồ sơ",
+    "wallet": "Ví",
+    "support": "Hỗ trợ",
+    "logout": "Đăng xuất",
+    "manageUser": "Quản lý người dùng",
+    "manageStory": "Quản lý truyện"
+  },
+  "NavProfiles": {
+    "account": "Tài khoản",
+    "comments": "Bình luận",
+    "subscribed": "Đăng ký"
+  },
+  "NavManageUsers": {
+    "users": "Người dùng",
+    "story": "Truyện",
+    "add": "Thêm",
+    "edit": "Sửa",
+    "delete": "Xóa",
+    "author": "Tác giả",
+    "role": "Vai trò",
+    "status": "Trạng thái"
+  },
+  "ManageUsers": {
+    "headerEdit": "Chỉnh sửa hồ sơ",
+    "descriptionEdit": "Thực hiện thay đổi thông tin hồ sơ của bạn tại đây.",
+    "userName": "Tên người dùng",
+    "name": "Tên người dùng",
+    "email": "Email",
+    "roles": "Vai trò",
+    "isActive": "isActive",
+    "save": "Lưu",
+    "cancel": "Huỷ",
+    "delete": "Xóa",
+    "actions": "Hành động",
+    "status": "Trạng thái",
+    "copyUserID": "Sao chép ID người dùng",
+    "viewUser": "Xem người dùng",
+    "edit": "Sửa",
+    "add": "Thêm",
+    "userManagement": "Quản lý người dùng",
+    "search": "Lọc email...",
+    "columns": "Cột",
+    "noData": "Không có kết quả nào.",
+    "editSuccess": "Sửa thông tin thành công.",
+    "success": "Thành công"
   }
 }

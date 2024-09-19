@@ -11,7 +11,8 @@
     "placeholderEmail": "Enter your email",
     "placeholderPassword": "Enter your password",
     "placeholderConfirmPassword": "Re-enter your password",
-    "login": "Already have an account"
+    "login": "Already have an account",
+    "loginWithEmail": "Login with Email"
   },
   "Login": {
     "title": "Login",
@@ -21,11 +22,16 @@
     "submit": "Login",
     "placeholderEmail": "Enter your email",
     "placeholderPassword": "Enter your password",
-    "register": "Create new account"
+    "register": "Create new account",
+    "error401": "Incorrect username or password."
   },
   "Header": {
     "register": "Register",
-    "login": "Login"
+    "login": "Login",
+    "logout": "Log out",
+    "confirmLogin": "Login successful.",
+    "confirmLogout": "Logout successful.",
+    "confirmRegister": "Registration successful."
   },
   "Themes": {
     "light": "Light",
@@ -34,7 +40,7 @@
   },
   "Language": {
     "language": "Language",
-    "vn": "Vietnamese",
+    "vi": "Vietnamese",
     "en": "English"
   },
   "NavigationMenu": {
@@ -95,5 +101,71 @@
     "friday": "Fri",
     "saturday": "Sat",
     "sunday": "Sun"
+  },
+  "DailyMainBtn": {
+    "more": "More",
+    "newStory": "New Story"
+  },
+  "Account": {
+    "userName": "UserName",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "edit": "Edit",
+    "changePassword": "Change Password",
+    "save": "Save",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "cancel": "Cancel",
+
+    "errorMsgCurrentPassword": "The current password entered is incorrect."
+  },
+  "DropdownMenu": {
+    "myAccount": "My Account",
+    "profile": "Profile",
+    "wallet": "Wallet",
+    "support": "Support",
+    "logout": "Log out",
+    "manageUser": "Manage User",
+    "manageStory": "Manage Story"
+  },
+  "NavProfiles": {
+    "account": "Account",
+    "comments": "Comments",
+    "subscribed": "Subscribed"
+  },
+  "NavManageUsers": {
+    "users": "Users",
+    "story": "Story",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "author": "Author",
+    "role": "Role",
+    "status": "Status"
+  },
+  "ManageUsers": {
+    "headerEdit": "Edit profile",
+    "descriptionEdit": "Make changes to your profile information here.",
+    "userName": "User Name",
+    "name": "User Name",
+    "email": "Email",
+    "roles": "Roles",
+    "isActive": "isActive",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "status": "Status",
+    "actions": "Actions",
+    "copyUserID": "Copy user ID",
+    "viewUser": "View user",
+    "edit": "Edit",
+    "add": "Add",
+    "userManagement": "User Management",
+    "search": "Filter emails...",
+    "columns": "Columns",
+    "noData": "No results.",
+    "editSuccess": "Information edited successfully.",
+    "success": "Success"
   }
 }

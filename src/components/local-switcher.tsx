@@ -1,7 +1,7 @@
 'use client';
 
 import { useLocale, useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import {
   Select,
@@ -18,10 +18,12 @@ export default function LocaleSwitcher() {
   const router = useRouter();
   const activeLocale = useLocale();
   const t = useTranslations('Language');
+  const pathname = usePathname()
 
   const onSelectChange = (nextLocale: string) => {
+    const newPathname = pathname.replace(`/${activeLocale}`, `/${nextLocale}`);
     startTransition(() => {
-      router.replace(`/${nextLocale}`);
+      router.replace(newPathname);
     });
   };
 
@@ -33,7 +35,7 @@ export default function LocaleSwitcher() {
       <SelectContent>
         <SelectGroup>
           <SelectLabel>{t('language')}</SelectLabel>
-          <SelectItem value="vn">{t('vn')}</SelectItem>
+          <SelectItem value="vi">{t('vi')}</SelectItem>
           <SelectItem value="en">{t('en')}</SelectItem>
         </SelectGroup>
       </SelectContent>

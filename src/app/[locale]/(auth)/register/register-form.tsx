@@ -14,10 +14,17 @@ import {
 import { Input } from "@/components/ui/input"
 import { RegisterBody, RegisterBodyType } from "@/schemaValidations/auth.schema"
 import { useTranslations } from "next-intl"
+import { useDispatch, useSelector } from "react-redux"
+import { register } from "@/redux/auth/actions"
+import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
+import config from "@/config"
+import { toast } from "sonner"
+import { CircleCheck } from "lucide-react"
 
 export function RegisterForm() {
     const t = useTranslations('Register');
-
+    const dispatch = useDispatch();
     const form = useForm<RegisterBodyType>({
       resolver: zodResolver(RegisterBody),
       defaultValues: {
@@ -27,9 +34,30 @@ export function RegisterForm() {
         confirmPassword: "",
       },
     })
-   
+    const authSelector = useSelector(({ auth } : any) => auth);
+    const [registered, setRegistered] = useState<boolean>(false);
+    const router = useRouter();
+    
+    useEffect(() => {
+      if (authSelector.registered) {
+        setRegistered(true);
+      }
+      if(registered) {
+        router.push(`${config.routes.public.login}`);
+        setRegistered(false);
+        toast.success(t('register'), {
+          icon: <CircleCheck /> ,
+          description: `${t('confirmRegister')}`,
+        })
+      }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [authSelector, router]);
+    
     function onSubmit(values: RegisterBodyType) {
-      
+      dispatch(register({
+        data: values,
+        setError: () => "",
+      }))
     }
 
     return (

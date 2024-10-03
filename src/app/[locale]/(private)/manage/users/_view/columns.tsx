@@ -34,6 +34,7 @@ export const columns: ColumnDef<DataUser>[] = [
   {
     accessorKey: "roles",
     header: ({ column }) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       const t = useTranslations('ManageUsers');
       return (
         <Button
@@ -53,6 +54,7 @@ export const columns: ColumnDef<DataUser>[] = [
   {
     accessorKey: "email",
     header: ({ column }) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       const t = useTranslations('ManageUsers');
       return (
         <Button
@@ -70,6 +72,7 @@ export const columns: ColumnDef<DataUser>[] = [
   {
     accessorKey: "name",
     header: ({ column }) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       const t = useTranslations('ManageUsers');
       return (
         <Button
@@ -87,6 +90,7 @@ export const columns: ColumnDef<DataUser>[] = [
   {
     accessorKey: "isActive",
     header: ({ column }) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       const t = useTranslations('ManageUsers');
       return (
         <Button

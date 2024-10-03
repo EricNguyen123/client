@@ -1,7 +1,10 @@
 import {
   Action,
+  DeleteUserProps,
+  DeleteUsersProps,
   GetUserProps,
   GetUsersProps,
+  RegisterUserProps,
   UpdateEmailProps,
   UpdateUsernameProps,
   UpdateUserProps,
@@ -55,5 +58,35 @@ export const updateUser = (data: UpdateUserProps): Action => ({
 
 export const updateUserResult = (result: any, isSuccess = true): Action => ({
   type: isSuccess ? types.UPDATE_USER_SUCCESS : types.UPDATE_USER_FAILED,
+  payload: result,
+});
+
+export const deleteUser = (data: DeleteUserProps): Action => ({
+  type: types.DELETE_USER,
+  payload: data,
+});
+
+export const deleteUserResult = (result: any, isSuccess = true): Action => ({
+  type: isSuccess ? types.DELETE_USER_SUCCESS : types.DELETE_USER_FAILED,
+  payload: result,
+});
+
+export const registerUser = (data: RegisterUserProps): Action => ({
+  type: types.REGISTER_USER,
+  payload: data,
+});
+
+export const registerUserResult = (result: any, isSuccess = true): Action => ({
+  type: isSuccess ? types.REGISTER_USER_SUCCESS : types.REGISTER_USER_FAILED,
+  payload: result,
+});
+
+export const deleteUsers = (data: DeleteUsersProps): Action => ({
+  type: types.DELETE_USERS,
+  payload: data,
+});
+
+export const deleteUsersResult = (result: any, isSuccess = true): Action => ({
+  type: isSuccess ? types.DELETE_USERS_SUCCESS : types.DELETE_USERS_FAILED,
   payload: result,
 });

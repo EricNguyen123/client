@@ -185,6 +185,24 @@ export type UpdateEmailProps = {
   };
 };
 
+export type DeleteUserProps = {
+  data: {
+    id: string;
+  };
+  onOpenChange: (open: boolean) => void;
+  handleToast: () => void;
+  handleToastError: () => void;
+}
+
+export type DeleteUsersProps = {
+  data: {
+    id: string;
+  }[];
+  onOpenChange: (open: boolean) => void;
+  handleToast: () => void;
+  handleToastError: () => void;
+}
+
 export type UpdateUserProps = {
   data: {
     id: string;
@@ -195,6 +213,7 @@ export type UpdateUserProps = {
   };
   onOpenChange: (open: boolean) => void;
   handleToast: () => void;
+  handleToastError: () => void;
 };
 
 export type RegisterProps = {
@@ -205,6 +224,19 @@ export type RegisterProps = {
     confirmPassword: string;
   };
   setError: (fieldName: string, errorMessage: string) => void;
+};
+
+export type RegisterUserProps = {
+  data: {
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+  };
+  setError: (fieldName: string, errorMessage: string) => void;
+  onOpenChange: (open: boolean) => void;
+  handleToast: () => void;
+  handleToastError: () => void;
 };
 
 export type LoginProps = {

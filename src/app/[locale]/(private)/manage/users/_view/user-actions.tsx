@@ -1,18 +1,24 @@
 'use client'
+
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { DotsHorizontalIcon } from "@radix-ui/react-icons"
-import { Copy, FilePenLine, SquareUser, Trash2 } from "lucide-react"
+import { CircleX, Copy, FileCheck, FilePenLine, SquareUser, Trash2 } from "lucide-react"
 import { DialogEdit } from "./dialog-edit"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useTranslations } from "next-intl"
 import { Delete } from "@/components/delete"
+import { useDispatch } from "react-redux"
+import { deleteUser } from "@/redux/user/actions"
+import { toast } from "sonner"
 
 export const UserActions = ({ user }: { user: DataUser}) => {
   const t = useTranslations('ManageUsers');
+  const tr = useTranslations('Toast');
+  const dispatch = useDispatch()
   const [openEdit, setOpenEdit] = useState<boolean>(false)
   const [openDelete, setOpenDelete] = useState<boolean>(false)
-
+  const [data, setData] = useState<DataUser>(user)
   const handleOpenEdit = (open: boolean) => {
     setOpenEdit(open)
   }
@@ -20,6 +26,31 @@ export const UserActions = ({ user }: { user: DataUser}) => {
   const handleOpenDelete = (open: boolean) => {
     setOpenDelete(open)
   }
+
+  const handleDelete = () => {
+    dispatch(deleteUser({
+      data: {
+        id: user.id,
+      },
+      onOpenChange: handleOpenDelete,
+      handleToast: () => {
+        toast.success(t('success'), {
+          icon: <FileCheck /> ,
+          description: `${t('deleteSuccess')}`,
+        })
+      },
+      handleToastError: () => {
+        toast.error(tr('error'), {
+          icon: <CircleX /> ,
+          description: `${tr('errorMessage')}`,
+        })
+      }
+    }))
+  }
+
+  useEffect(() => {
+    setData(user)
+  }, [user])
 
   return (
     <>
@@ -33,7 +64,7 @@ export const UserActions = ({ user }: { user: DataUser}) => {
           <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
           <DropdownMenuItem
             className="cursor-pointer"
-            onClick={() => navigator.clipboard.writeText(user.id)}
+            onClick={() => navigator.clipboard.writeText(data.id)}
           >
             <Copy className="w-4 h-4 mr-2" /> {t('copyUserID')}
           </DropdownMenuItem>
@@ -58,8 +89,8 @@ export const UserActions = ({ user }: { user: DataUser}) => {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <DialogEdit open={openEdit} onOpenChange={handleOpenEdit} data={user}/>
-      <Delete open={openDelete} onOpenChange={handleOpenDelete} label={'người dùng'} handleDelete={() => {}}/>
+      <DialogEdit open={openEdit} onOpenChange={handleOpenEdit} data={data}/>
+      <Delete open={openDelete} onOpenChange={handleOpenDelete} label={data.name} handleDelete={handleDelete}/>
     </>
   );
 };

@@ -104,6 +104,59 @@ export default function usersReducer(
       return { ...state, loading: false };
     }
 
+    case types.DELETE_USER: {
+      return { ...state, loading: true };
+    }
+
+    case types.DELETE_USER_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        users: state.users.filter((i: any) => i.id !== action.payload.data.id) || undefined,
+      };
+    }
+
+    case types.DELETE_USER_FAILED: {
+      return { ...state, loading: false };
+    }
+
+    case types.REGISTER_USER: {
+      return { ...state, loading: true };
+    }
+
+    case types.REGISTER_USER_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        users: [action.payload.data, ...state.users],
+      };
+    }
+
+    case types.REGISTER_USER_FAILED: {
+      return { ...state, loading: false };
+    }
+
+    case types.DELETE_USERS: {
+      return { ...state, loading: true };
+    }
+
+    case types.DELETE_USERS_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        users: state.users.filter((i: any) => {
+          const idRes = action.payload.data.ids.find((e: string) => e === i.id)
+          if (!idRes) {
+            return i
+          }
+        }) || undefined,
+      };
+    }
+
+    case types.DELETE_USERS_FAILED: {
+      return { ...state, loading: false };
+    }
+
     default:
       return state;
   }

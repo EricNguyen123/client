@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import ItemsInput from "./items-input"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { RadioMenu } from "@/components/radio-menu"
 import { roles, status } from "@/constants/radio-menu"
 import { Label } from "@/components/ui/label"
@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button"
 import { ReloadIcon } from "@radix-ui/react-icons"
 import { useTranslations } from "next-intl"
 import { toast } from "sonner"
-import { FileCheck } from "lucide-react"
+import { CircleX, FileCheck } from "lucide-react"
 
 interface DialogEditProps { 
   open: boolean, 
@@ -36,6 +36,7 @@ export function DialogEdit({ open, onOpenChange, data }: DialogEditProps) {
   const [rolesValue, setRolesValue] = useState<string>(data.roles);
   const [isActiveValue, setIsActiveValue] = useState<number>(data.isActive ? Status.Active : Status.Inactive);
   const t = useTranslations('ManageUsers');
+  const tr = useTranslations('Toast');
 
   const handleName = (e: string) => {
     setName(e);
@@ -64,8 +65,15 @@ export function DialogEdit({ open, onOpenChange, data }: DialogEditProps) {
     })
   }
 
+  const handleError = () => {
+    toast.error(tr('error'), {
+      icon: <CircleX /> ,
+      description: `${tr('errorMessage')}`,
+    })
+  }
+
   const handleSave = () => {
-    if (name !== data.name || email !== data.email || rolesValue !== data.roles) {
+    if (name !== data.name || email !== data.email || rolesValue !== data.roles || !(data.isActive && isActiveValue)) {
       dispatch(updateUser({
         data: {
           id: data.id,
@@ -76,9 +84,17 @@ export function DialogEdit({ open, onOpenChange, data }: DialogEditProps) {
         },
         onOpenChange: onOpenChange,
         handleToast: handleToast,
+        handleToastError: handleError,
       }))
     }
   }
+
+  useEffect(() => {
+    setName(data.name);
+    setEmail(data.email);
+    setRolesValue(data.roles);
+    setIsActiveValue(data.isActive? Status.Active : Status.Inactive);
+  }, [data])
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>

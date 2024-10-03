@@ -7,6 +7,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+import { PackageX, Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface DialogDeleteProps { 
   open: boolean, 
@@ -16,19 +18,22 @@ interface DialogDeleteProps {
 }
 
 export function Delete({ open, onOpenChange, label, handleDelete }: DialogDeleteProps) {
+  const t = useTranslations('ManageUsers');
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Delete</DialogTitle>
+          <DialogTitle className="flex items-center justify-start">
+            <PackageX className="mr-3" />{t('delete')}
+          </DialogTitle>
           <DialogDescription>
-            You want to delete {label} này.
+            {t('confirm')} <span className="font-semibold">{label}</span>.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <div className=" space-x-3">
-            <Button variant="outline" className="w-20" onClick={() => {onOpenChange(false)}}>Cancel</Button>
-            <Button variant={'destructive'} className="w-20" onClick={() => {handleDelete()}}>Delete</Button>
+          <div className="flex items-center space-x-3">
+            <Button variant="outline" className="w-20" onClick={() => {onOpenChange(false)}}>{t('cancel')}</Button>
+            <Button variant={'destructive'} className="w-20" onClick={() => {handleDelete()}}><Trash2 className="size-full m-0"/></Button>
           </div>
         </DialogFooter>
       </DialogContent>

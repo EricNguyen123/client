@@ -29,3 +29,22 @@ export const updateUserApi = (data: any): Promise<AxiosResponse> => {
     isActive: data.isActive,
   });
 };
+
+export const deleteUserApi = (data: any): Promise<AxiosResponse> => {
+  return api.delete(`/users/delete/user?id=${data.id}`);
+};
+
+export const deleteUsersApi = (data: any): Promise<AxiosResponse> => {
+  return api.delete(`/users/delete/users`, {
+    data: data
+  });
+};
+
+export const registerUserApi = (data: any): Promise<AxiosResponse> => {
+  return api.post(`/users/register/user`, {
+    email: data.email,
+    name: data.name,
+    password: data.password,
+    confirmPassword: data.confirmPassword,
+  });
+};

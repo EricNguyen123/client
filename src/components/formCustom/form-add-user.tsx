@@ -15,16 +15,18 @@ import { Input } from "@/components/ui/input"
 import { RegisterBody, RegisterBodyType } from "@/schemaValidations/auth.schema"
 import { useTranslations } from "next-intl"
 import { useDispatch, useSelector } from "react-redux"
-import { register } from "@/redux/auth/actions"
-import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
-import config from "@/config"
+import {  useState } from "react"
 import { toast } from "sonner"
-import { CircleCheck, Eye, EyeOff } from "lucide-react"
+import { CircleX, Eye, EyeOff, FileCheck } from "lucide-react"
+import { registerUser } from "@/redux/user/actions"
+import { ReloadIcon } from "@radix-ui/react-icons"
 
-export function RegisterForm() {
+export function FormAddUser({ onOpenChange }: { onOpenChange: (open: boolean) => void}) {
+    const tr = useTranslations('Toast');
+    const tm = useTranslations('ManageUsers');
     const t = useTranslations('Register');
     const dispatch = useDispatch();
+    const usersSelector = useSelector(({ users } : any) => users);
     const form = useForm<RegisterBodyType>({
       resolver: zodResolver(RegisterBody),
       defaultValues: {
@@ -34,31 +36,26 @@ export function RegisterForm() {
         confirmPassword: "",
       },
     })
-    const authSelector = useSelector(({ auth } : any) => auth);
-    const [registered, setRegistered] = useState<boolean>(false);
-    const router = useRouter();
     const [showPassword, setShowPassword] = useState<boolean>(false); 
     const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
-    
-    useEffect(() => {
-      if (authSelector.registered) {
-        setRegistered(true);
-      }
-      if(registered) {
-        router.push(`${config.routes.public.login}`);
-        setRegistered(false);
-        toast.success(t('register'), {
-          icon: <CircleCheck /> ,
-          description: `${t('confirmRegister')}`,
-        })
-      }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [authSelector, router]);
-    
+
     function onSubmit(values: RegisterBodyType) {
-      dispatch(register({
+      dispatch(registerUser({
         data: values,
         setError: () => "",
+        onOpenChange: onOpenChange,
+        handleToast: () => {
+          toast.success(tm('success'), {
+            icon: <FileCheck /> ,
+            description: `${tm('regiserSuccess')}`,
+          })
+        },
+        handleToastError: () => {
+          toast.error(tr('error'), {
+            icon: <CircleX /> ,
+            description: `${tr('errorMessage')}`,
+          })
+        }
       }))
     }
 
@@ -137,7 +134,9 @@ export function RegisterForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-[100%] bg-sky-500 hover:bg-sky-700">{t('submit')}</Button>
+            <Button type="submit" className="w-[100%] bg-sky-500 hover:bg-sky-700">
+              {usersSelector.loading ? <ReloadIcon className="size-full animate-spin" /> : t('submit')}
+            </Button>
           </form>
         </Form>
       )    

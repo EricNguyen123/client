@@ -160,12 +160,21 @@
     "copyUserID": "Copy user ID",
     "viewUser": "View user",
     "edit": "Edit",
-    "add": "Add",
+    "add": "Add new user",
     "userManagement": "User Management",
     "search": "Filter emails...",
     "columns": "Columns",
     "noData": "No results.",
     "editSuccess": "Information edited successfully.",
-    "success": "Success"
+    "success": "Success",
+    "confirm": "You want to delete",
+    "deleteSuccess": "You have deleted successfully.",
+    "headerAdd": "Create new user",
+    "registerSuccess": "New user created successfully.",
+    "deleteUsers": "selected items"
+  },
+  "Toast": {
+    "error": "Error",
+    "errorMessage": "An error occurred."
   }
 }

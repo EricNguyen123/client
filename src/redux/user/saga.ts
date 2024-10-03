@@ -1,8 +1,8 @@
 import { all, call, put, takeEvery } from "redux-saga/effects";
 import { GetUserResponseResult } from "../../types/redux";
 
-import { getUserResult, getUsersResult, updateEmailResult, updateUsernameResult, updateUserResult } from "./actions";
-import { getUserApi, getUsersApi, updateEmailApi, updateUserApi, updateUsernameApi } from "./api";
+import { deleteUserResult, deleteUsersResult, getUserResult, getUsersResult, registerUserResult, updateEmailResult, updateUsernameResult, updateUserResult } from "./actions";
+import { deleteUserApi, deleteUsersApi, getUserApi, getUsersApi, registerUserApi, updateEmailApi, updateUserApi, updateUsernameApi } from "./api";
 import types from "./type";
 
 function* getUsersSaga(props: any) {
@@ -71,7 +71,7 @@ function* updateEmailSaga(props: any) {
 
 function* updateUserSaga(props: any) {
   try {
-    const { data, onOpenChange, handleToast } = props.payload;
+    const { data, onOpenChange, handleToast, handleToastError } = props.payload;
     const res: GetUserResponseResult = yield call(updateUserApi, data);
     if (res.status === 201) {
       yield onOpenChange(false);
@@ -79,7 +79,62 @@ function* updateUserSaga(props: any) {
       yield put(updateUserResult({ data: res.data }));
     } else {
       const isSuccess = false;
+      yield handleToastError();
       yield put(updateUserResult(res, isSuccess));
+    }
+  } catch (error) {
+    console.error('Get User Saga Error:', error);
+  };
+}
+
+function* deleteUserSaga(props: any) {
+  try {
+    const { data, onOpenChange, handleToast, handleToastError } = props.payload;
+    const res: GetUserResponseResult = yield call(deleteUserApi, data);
+    if (res.status === 200) {
+      yield onOpenChange(false);
+      yield handleToast();
+      yield put(deleteUserResult({ data: res.data }));
+    } else {
+      const isSuccess = false;
+      yield handleToastError();
+      yield put(deleteUserResult(res, isSuccess));
+    }
+  } catch (error) {
+    console.error('Get User Saga Error:', error);
+  };
+}
+
+function* registerUserSaga(props: any) {
+  try {
+    const { data, onOpenChange, handleToast, handleToastError } = props.payload;
+    const res: GetUserResponseResult = yield call(registerUserApi, data);
+    if (res.status === 201) {
+      yield onOpenChange(false);
+      yield handleToast();
+      yield put(registerUserResult({ data: res.data }));
+    } else {
+      const isSuccess = false;
+      yield handleToastError();
+      yield put(registerUserResult(res, isSuccess));
+    }
+  } catch (error) {
+    console.error('Register User Saga Error:', error);
+  };
+}
+
+function* deleteUsersSaga(props: any) {
+  try {
+    const { data, onOpenChange, handleToast, handleToastError } = props.payload;
+    const res: GetUserResponseResult = yield call(deleteUsersApi, data);
+    if (res.status === 200) {
+      yield onOpenChange(false);
+      yield handleToast();
+      yield put(deleteUsersResult({ data: res.data }));
+    } else {
+      const isSuccess = false;
+      yield handleToastError();
+      yield put(deleteUsersResult(res, isSuccess));
     }
   } catch (error) {
     console.error('Get User Saga Error:', error);
@@ -93,5 +148,8 @@ export default function* rootSaga() {
     takeEvery(types.UPDATE_USERNAME, updateUsernameSaga),
     takeEvery(types.UPDATE_EMAIL, updateEmailSaga),
     takeEvery(types.UPDATE_USER, updateUserSaga),
+    takeEvery(types.DELETE_USER, deleteUserSaga),
+    takeEvery(types.DELETE_USERS, deleteUsersSaga),
+    takeEvery(types.REGISTER_USER, registerUserSaga),
   ]);
 }

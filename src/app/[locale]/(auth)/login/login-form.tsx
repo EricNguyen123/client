@@ -20,6 +20,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import config from "@/config"
 import { ErrorNumber } from "@/common/general"
+import { Eye, EyeOff } from "lucide-react"
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const LoginForm = () => {
     const router = useRouter();
     const [showError, setShowError] = useState<boolean>(false)
     const [showErrorMessage, setShowErrorMessage] = useState<string>('')
+    const [showPassword, setShowPassword] = useState<boolean>(false); 
 
     useEffect(() => {
       if (authSelector.authenticated) {
@@ -78,7 +80,17 @@ const LoginForm = () => {
                 <FormItem>
                   <FormLabel>{t('password')}</FormLabel>
                   <FormControl>
-                    <Input placeholder={t('placeholderPassword')} type="password" {...field} />
+                    <div className='w-full relative'>
+                      <Input placeholder={t('placeholderPassword')} type={showPassword ? "text" : "password"}  {...field} />
+                      <span
+                        className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        {!showPassword ? 
+                          <Eye className='text-sky-500'/> : 
+                          <EyeOff className='text-sky-500'/>}
+                      </span>
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

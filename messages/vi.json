@@ -162,12 +162,21 @@
     "copyUserID": "Sao chép ID người dùng",
     "viewUser": "Xem người dùng",
     "edit": "Sửa",
-    "add": "Thêm",
+    "add": "Thêm người dùng mới",
     "userManagement": "Quản lý người dùng",
     "search": "Lọc email...",
     "columns": "Cột",
     "noData": "Không có kết quả nào.",
     "editSuccess": "Sửa thông tin thành công.",
-    "success": "Thành công"
+    "success": "Thành công",
+    "confirm": "Bạn muốn xóa",
+    "deleteSuccess": "Bạn đã xoá thành công.",
+    "headerAdd": "Tạo người dùng mới",
+    "regiserSuccess": "Người dùng mới đã tạo thành công.",
+    "deleteUsers": "các mục đã chọn"
+  },
+  "Toast": {
+    "error": "Lỗi",
+    "errorMessage": "Đã có lỗi xảy ra."
   }
 }
